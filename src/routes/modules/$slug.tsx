@@ -17,9 +17,10 @@ export const Route = createFileRoute("/modules/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Darasin bai samu ba — Clove Nigeria" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Module not found — Clove Nigeria" }, { name: "robots", content: "noindex" }],
       };
     }
+
     const title = `Module ${loaderData.module.number}: ${loaderData.module.title} — Clove Nigeria`;
     return {
       meta: [
