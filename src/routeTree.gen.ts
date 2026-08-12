@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ModulesIndexRouteImport } from './routes/modules/index'
 import { Route as ModulesSlugRouteImport } from './routes/modules/$slug'
@@ -23,6 +25,16 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResourcesRoute = ResourcesRouteImport.update({
@@ -44,6 +56,8 @@ const ModulesSlugRoute = ModulesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/register': typeof RegisterRoute
   '/resources': typeof ResourcesRoute
   '/modules/$slug': typeof ModulesSlugRoute
   '/modules/': typeof ModulesIndexRoute
@@ -51,6 +65,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/register': typeof RegisterRoute
   '/resources': typeof ResourcesRoute
   '/modules/$slug': typeof ModulesSlugRoute
   '/modules': typeof ModulesIndexRoute
@@ -59,22 +75,47 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/register': typeof RegisterRoute
   '/resources': typeof ResourcesRoute
   '/modules/$slug': typeof ModulesSlugRoute
   '/modules/': typeof ModulesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/resources' | '/modules/$slug' | '/modules/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/register'
+    | '/resources'
+    | '/modules/$slug'
+    | '/modules/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/resources' | '/modules/$slug' | '/modules'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/register'
+    | '/resources'
+    | '/modules/$slug'
+    | '/modules'
   id:
-    '__root__' | '/' | '/about' | '/resources' | '/modules/$slug' | '/modules/'
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/register'
+    | '/resources'
+    | '/modules/$slug'
+    | '/modules/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  RegisterRoute: typeof RegisterRoute
   ResourcesRoute: typeof ResourcesRoute
   ModulesSlugRoute: typeof ModulesSlugRoute
   ModulesIndexRoute: typeof ModulesIndexRoute
@@ -94,6 +135,20 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resources': {
@@ -123,6 +178,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  RegisterRoute: RegisterRoute,
   ResourcesRoute: ResourcesRoute,
   ModulesSlugRoute: ModulesSlugRoute,
   ModulesIndexRoute: ModulesIndexRoute,
