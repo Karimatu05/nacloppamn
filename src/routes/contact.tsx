@@ -9,16 +9,16 @@ import { Textarea } from "@/components/ui/textarea";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Tuntube Mu — Clove Nigeria" },
+      { title: "Contact Us — Clove Nigeria" },
       {
         name: "description",
         content:
-          "Tuntube masu horarwa na Clove Nigeria domin tambayoyi kan noman clove, horo ko hadin gwiwa.",
+          "Contact the Clove Nigeria training team with questions about clove production, training schedules or partnerships.",
       },
-      { property: "og:title", content: "Tuntube Mu — Clove Nigeria" },
+      { property: "og:title", content: "Contact Us — Clove Nigeria" },
       {
         property: "og:description",
-        content: "Tambayoyi kan horon noman clove? Aika mana sako.",
+        content: "Questions about clove production training? Send us a message.",
       },
     ],
   }),
@@ -26,20 +26,20 @@ export const Route = createFileRoute("/contact")({
 });
 
 const details = [
-  { icon: Phone, label: "Waya", value: "+234 800 000 0000" },
-  { icon: Mail, label: "Imel", value: "horo@clovenigeria.org" },
-  { icon: MapPin, label: "Ofis", value: "Abuja, Najeriya" },
-  { icon: Clock, label: "Lokacin Aiki", value: "Litinin – Juma'a, 9:00 – 17:00" },
+  { icon: Phone, label: "Phone", value: "+234 800 000 0000" },
+  { icon: Mail, label: "Email", value: "training@clovenigeria.org" },
+  { icon: MapPin, label: "Office", value: "Abuja, Nigeria" },
+  { icon: Clock, label: "Working Hours", value: "Monday – Friday, 9:00 – 17:00" },
 ];
 
 function ContactPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
-      <p className="eyebrow">Tuntube Mu</p>
-      <h1 className="mt-3 text-4xl sm:text-5xl">Muna nan don taimaka maka</h1>
+      <p className="eyebrow">Contact</p>
+      <h1 className="mt-3 text-4xl sm:text-5xl">We are here to help</h1>
       <p className="mt-4 max-w-2xl text-muted-foreground">
-        Aika mana tambayoyinka kan noman clove, tsarin horo, ko hadin gwiwa da kungiyoyi da
-        makarantun aikin gona.
+        Send us your questions about clove production, training schedules, or partnerships with
+        cooperatives and agricultural institutions.
       </p>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
@@ -47,37 +47,37 @@ function ContactPage() {
           className="surface-card rounded-xl p-6 sm:p-8"
           onSubmit={(e) => {
             e.preventDefault();
-            toast.success("An aika sakonka. Mun gode!");
+            toast.success("Your message has been sent. Thank you!");
             (e.target as HTMLFormElement).reset();
           }}
         >
           <div className="grid gap-5 sm:grid-cols-2">
             <div className="grid gap-2">
-              <Label htmlFor="cname">Suna</Label>
-              <Input id="cname" required placeholder="Sunanka" />
+              <Label htmlFor="cname">Name</Label>
+              <Input id="cname" required placeholder="Your full name" />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="cphone">Waya ko Imel</Label>
-              <Input id="cphone" required placeholder="080... ko suna@imel.com" />
+              <Label htmlFor="cphone">Phone or Email</Label>
+              <Input id="cphone" required placeholder="080... or you@email.com" />
             </div>
             <div className="grid gap-2 sm:col-span-2">
-              <Label htmlFor="csubject">Batun Sako</Label>
-              <Input id="csubject" placeholder="Misali: Horo a jihar Kaduna" />
+              <Label htmlFor="csubject">Subject</Label>
+              <Input id="csubject" placeholder="e.g. Training in Kaduna State" />
             </div>
             <div className="grid gap-2 sm:col-span-2">
-              <Label htmlFor="cmsg">Sako</Label>
-              <Textarea id="cmsg" required rows={5} placeholder="Rubuta sakonka a nan" />
+              <Label htmlFor="cmsg">Message</Label>
+              <Textarea id="cmsg" required rows={5} placeholder="Write your message here" />
             </div>
             <div className="sm:col-span-2">
               <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto">
-                Aika Sako
+                Send Message
               </Button>
             </div>
           </div>
         </form>
 
         <aside className="rounded-xl border border-border bg-cream p-6 sm:p-8">
-          <h2 className="text-xl">Bayanan Tuntuba</h2>
+          <h2 className="text-xl">Contact Details</h2>
           <ul className="mt-6 space-y-5">
             {details.map((d) => (
               <li key={d.label} className="flex gap-3">

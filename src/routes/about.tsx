@@ -5,16 +5,16 @@ import trainingImage from "@/assets/training-nursery.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Game da Shirin Horo — Clove Nigeria" },
+      { title: "About the Training Programme — Clove Nigeria" },
       {
         name: "description",
         content:
-          "Manufar littafin horo kan noman clove, wadanda aka tsara shi domin su, da hanyoyin horarwa da muke amfani da su.",
+          "The purpose of the clove production training manual, who it is designed for, and the training approach we use.",
       },
-      { property: "og:title", content: "Game da Shirin Horo — Clove Nigeria" },
+      { property: "og:title", content: "About the Training Programme — Clove Nigeria" },
       {
         property: "og:description",
-        content: "Manufa, mahalarta da hanyoyin horarwa na shirin noman clove.",
+        content: "Purpose, target audience and training approach of the clove production programme.",
       },
     ],
   }),
@@ -22,37 +22,37 @@ export const Route = createFileRoute("/about")({
 });
 
 const audience = [
-  "Manoma",
-  "Jami'an fadada aikin gona",
-  "Daliban aikin gona",
-  "Masu kasuwancin noma (agripreneurs)",
-  "Kungiyoyin raya al'umma",
+  "Farmers",
+  "Extension agents",
+  "Agricultural students",
+  "Agripreneurs",
+  "Development practitioners",
 ];
 
 const methods = [
-  "Laccoci masu mu'amala",
-  "Nuna aiki a fili",
-  "Tattaunawar rukuni",
-  "Ziyartar gonaki",
+  "Interactive lectures",
+  "Demonstrations and field practicals",
+  "Group discussions and problem-solving",
+  "Field visits and hands-on practice",
 ];
 
 function AboutPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
-      <p className="eyebrow">Game da Mu</p>
+      <p className="eyebrow">About</p>
       <h1 className="mt-3 max-w-3xl text-4xl sm:text-5xl">
-        An shirya shi domin horas da manoma da masu ruwa da tsaki a fannin noma
+        Built to train farmers and agricultural stakeholders
       </h1>
       <p className="mt-6 max-w-3xl text-muted-foreground">
-        An tsara wannan shirin domin bayar da cikakken bayani a mataki-mataki kan yadda ake noman
-        citta mai kamshi (clove). Ya hada ilimin ka&apos;ida da kuma ayyukan da ake yi a fili domin
-        mahalarta su fahimci darasin sosai kuma su samu kwarewar aiki.
+        This programme provides a professional, step-by-step guide to clove production, integrating
+        theoretical knowledge with hands-on practical activities to ensure clear understanding and
+        effective skill acquisition.
       </p>
 
       <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-center">
         <img
           src={trainingImage}
-          alt="Manoma suna karbar horo a nursery na clove"
+          alt="Farmers receiving training in a clove nursery"
           width={1200}
           height={912}
           loading="lazy"
@@ -60,7 +60,7 @@ function AboutPage() {
         />
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="surface-card rounded-xl p-6">
-            <h2 className="text-lg">Masu Amfani da Littafin</h2>
+            <h2 className="text-lg">Target Audience</h2>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {audience.map((a) => (
                 <li key={a} className="flex gap-2.5">
@@ -71,7 +71,7 @@ function AboutPage() {
             </ul>
           </div>
           <div className="surface-card rounded-xl p-6">
-            <h2 className="text-lg">Hanyoyin Horarwa</h2>
+            <h2 className="text-lg">Training Approach</h2>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {methods.map((m) => (
                 <li key={m} className="flex gap-2.5">
@@ -85,18 +85,19 @@ function AboutPage() {
       </div>
 
       <div className="mt-14 rounded-xl border border-border bg-cream p-8">
-        <h2 className="text-2xl">Kammalawa</h2>
+        <h2 className="text-2xl">Conclusion</h2>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          Wannan shirin ya bayyana matakai daban-daban na noman clove ta hanyar hada ilimin
-          ka&apos;ida da ayyukan fili. Idan aka yi amfani da hanyoyin da ke cikinsa, za a iya kara
-          yawan amfanin gona, inganci, da ribar noman clove.
+          The manual provides a comprehensive guide to clove production by combining sound
+          theoretical foundations with practical, field-based learning activities. When properly
+          applied, the practices outlined will enhance the productivity, quality and profitability
+          of clove farming.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Button asChild>
-            <Link to="/modules">Duba Darussa</Link>
+            <Link to="/modules">View Modules</Link>
           </Button>
           <Button asChild variant="outline">
-            <Link to="/register">Yi Rijista</Link>
+            <Link to="/register">Register</Link>
           </Button>
         </div>
       </div>

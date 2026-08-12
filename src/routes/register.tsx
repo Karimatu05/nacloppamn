@@ -17,16 +17,16 @@ import {
 export const Route = createFileRoute("/register")({
   head: () => ({
     meta: [
-      { title: "Rijistar Horon Noman Clove — Clove Nigeria" },
+      { title: "Register for Clove Production Training — Clove Nigeria" },
       {
         name: "description",
         content:
-          "Cika fom din rijista domin halartar horon noman clove: bayanan sirri, jiha da girman gona.",
+          "Complete the registration form to join the clove production training: your details, state, role and farm size.",
       },
-      { property: "og:title", content: "Rijistar Horon Noman Clove" },
+      { property: "og:title", content: "Register for Clove Production Training" },
       {
         property: "og:description",
-        content: "Yi rijista domin halartar horon noman citta mai kamshi (clove).",
+        content: "Sign up to attend the clove (Syzygium aromaticum) production training programme.",
       },
     ],
   }),
@@ -34,10 +34,10 @@ export const Route = createFileRoute("/register")({
 });
 
 const perks = [
-  "Darussa 10 na ka'ida da aiki a fili",
-  "Ziyartar gonaki da nuna aiki",
-  "Littafin horo cikin Hausa",
-  "Takardar shaida bayan kammalawa",
+  "10 modules of theory and field practice",
+  "Farm visits and live demonstrations",
+  "A copy of the training manual",
+  "Certificate on completion",
 ];
 
 function RegisterPage() {
@@ -45,11 +45,11 @@ function RegisterPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
-      <p className="eyebrow">Rijista</p>
-      <h1 className="mt-3 text-4xl sm:text-5xl">Yi Rijistar Horo</h1>
+      <p className="eyebrow">Registration</p>
+      <h1 className="mt-3 text-4xl sm:text-5xl">Register for Training</h1>
       <p className="mt-4 max-w-2xl text-muted-foreground">
-        Cika fom din da ke kasa, sannan masu horarwa za su tuntube ka da bayanan lokaci da wurin
-        horon da ya fi dacewa da kai.
+        Fill in the form below and our trainers will contact you with the schedule and venue that
+        suits you best.
       </p>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
@@ -58,64 +58,64 @@ function RegisterPage() {
           onSubmit={(e) => {
             e.preventDefault();
             setDone(true);
-            toast.success("An karbi rijistarka. Za mu tuntube ka nan ba da jimawa ba.");
+            toast.success("Registration received. We will contact you shortly.");
           }}
         >
           {done ? (
             <div className="py-10 text-center">
               <CheckCircle2 className="mx-auto size-10 text-primary" />
-              <h2 className="mt-4 text-2xl">An karbi rijistarka!</h2>
+              <h2 className="mt-4 text-2xl">Registration received!</h2>
               <p className="mt-3 text-sm text-muted-foreground">
-                Mun samu bayananka. Masu horarwa za su tuntube ka da bayanan lokacin horo.
+                We have your details. Our trainers will reach out with the training schedule.
               </p>
               <Button className="mt-6" variant="outline" onClick={() => setDone(false)}>
-                Sake cika fom
+                Submit another form
               </Button>
             </div>
           ) : (
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="grid gap-2">
-                <Label htmlFor="name">Cikakken Suna</Label>
-                <Input id="name" required placeholder="Sunanka" />
+                <Label htmlFor="name">Full Name</Label>
+                <Input id="name" required placeholder="Your full name" />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="phone">Lambar Waya</Label>
+                <Label htmlFor="phone">Phone Number</Label>
                 <Input id="phone" type="tel" required placeholder="080..." />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="email">Imel (na son rai)</Label>
-                <Input id="email" type="email" placeholder="suna@imel.com" />
+                <Label htmlFor="email">Email (optional)</Label>
+                <Input id="email" type="email" placeholder="you@email.com" />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="state">Jiha</Label>
-                <Input id="state" required placeholder="Misali: Kaduna" />
+                <Label htmlFor="state">State</Label>
+                <Input id="state" required placeholder="e.g. Kaduna" />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="role">Matsayinka</Label>
+                <Label htmlFor="role">Your Role</Label>
                 <Select>
                   <SelectTrigger id="role">
-                    <SelectValue placeholder="Zabi matsayi" />
+                    <SelectValue placeholder="Select a role" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="manomi">Manomi</SelectItem>
-                    <SelectItem value="jami">Jami&apos;in fadada aikin gona</SelectItem>
-                    <SelectItem value="dalibi">Dalibin aikin gona</SelectItem>
-                    <SelectItem value="agripreneur">Mai kasuwancin noma</SelectItem>
-                    <SelectItem value="kungiya">Kungiyar raya al&apos;umma</SelectItem>
+                    <SelectItem value="farmer">Farmer</SelectItem>
+                    <SelectItem value="extension">Extension agent</SelectItem>
+                    <SelectItem value="student">Agricultural student</SelectItem>
+                    <SelectItem value="agripreneur">Agripreneur</SelectItem>
+                    <SelectItem value="practitioner">Development practitioner</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="farm">Girman Gona (hekta)</Label>
-                <Input id="farm" placeholder="Misali: 2" />
+                <Label htmlFor="farm">Farm Size (hectares)</Label>
+                <Input id="farm" placeholder="e.g. 2" />
               </div>
               <div className="grid gap-2 sm:col-span-2">
-                <Label htmlFor="note">Karin Bayani</Label>
-                <Textarea id="note" rows={4} placeholder="Gaya mana kan gonarka ko tambayoyinka" />
+                <Label htmlFor="note">Additional Information</Label>
+                <Textarea id="note" rows={4} placeholder="Tell us about your farm or questions" />
               </div>
               <div className="sm:col-span-2">
                 <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto">
-                  Aika Rijista
+                  Submit Registration
                 </Button>
               </div>
             </div>
@@ -123,7 +123,7 @@ function RegisterPage() {
         </form>
 
         <aside className="rounded-xl border border-border bg-cream p-6 sm:p-8">
-          <h2 className="text-xl">Abin da za ka samu</h2>
+          <h2 className="text-xl">What you get</h2>
           <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
             {perks.map((p) => (
               <li key={p} className="flex gap-2.5">
@@ -133,8 +133,8 @@ function RegisterPage() {
             ))}
           </ul>
           <p className="mt-6 text-sm text-muted-foreground">
-            Horon ya hada laccoci masu mu&apos;amala, nuna aiki a fili, tattaunawar rukuni da
-            ziyartar gonaki.
+            Training combines interactive lectures, field demonstrations, group discussions and farm
+            visits.
           </p>
         </aside>
       </div>

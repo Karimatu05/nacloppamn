@@ -4,11 +4,11 @@ import { Menu, X, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const nav = [
-  { to: "/", label: "Gida" },
-  { to: "/modules", label: "Darussa" },
-  { to: "/about", label: "Game da Mu" },
-  { to: "/resources", label: "Kayan Koyo" },
-  { to: "/contact", label: "Tuntube Mu" },
+  { to: "/", label: "Home" },
+  { to: "/modules", label: "Modules" },
+  { to: "/about", label: "About" },
+  { to: "/resources", label: "Resources" },
+  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -24,7 +24,7 @@ export function SiteHeader() {
           <span className="leading-tight">
             <span className="block font-display text-base font-semibold">Clove Nigeria</span>
             <span className="block text-[11px] uppercase tracking-widest text-muted-foreground">
-              Cibiyar Horo
+              Training Institute
             </span>
           </span>
         </Link>
@@ -45,7 +45,7 @@ export function SiteHeader() {
 
         <div className="hidden md:block">
           <Button asChild variant="hero" size="sm">
-            <Link to="/register">Yi Rijista</Link>
+            <Link to="/register">Register</Link>
           </Button>
         </div>
 
@@ -76,7 +76,7 @@ export function SiteHeader() {
             ))}
             <Button asChild variant="hero" className="mt-2">
               <Link to="/register" onClick={() => setOpen(false)}>
-                Yi Rijista
+                Register
               </Link>
             </Button>
           </nav>

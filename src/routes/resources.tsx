@@ -7,16 +7,16 @@ import budsImage from "@/assets/clove-buds.jpg";
 export const Route = createFileRoute("/resources")({
   head: () => ({
     meta: [
-      { title: "Kayan Koyo da Littafin Horo — Clove Nigeria" },
+      { title: "Resources and Training Manual — Clove Nigeria" },
       {
         name: "description",
         content:
-          "Sauke littafin horo kan noman clove cikin Hausa, tare da ka'idojin yanayi, tazara da taki a takaice.",
+          "Download the clove production training manual (PDF) and review quick reference guides on climate, spacing, fertilizer and drying.",
       },
-      { property: "og:title", content: "Kayan Koyo da Littafin Horo" },
+      { property: "og:title", content: "Resources and Training Manual" },
       {
         property: "og:description",
-        content: "Littafin horo (PDF) cikin Hausa da jagororin gona a takaice.",
+        content: "The full clove production manual (PDF) plus quick agronomic reference guides.",
       },
     ],
   }),
@@ -26,21 +26,25 @@ export const Route = createFileRoute("/resources")({
 const quickFacts = [
   {
     icon: Thermometer,
-    title: "Yanayi",
-    items: ["Ruwan sama 1500–2500 mm/shekara", "Zafin jiki 20–30°C", "pH na kasa 5.5–7.0"],
+    title: "Climate and Soil",
+    items: ["Rainfall 1,500–2,500 mm/year", "Temperature 20–30°C", "Soil pH 5.5–7.0"],
   },
   {
     icon: Ruler,
-    title: "Tazara da Rami",
-    items: ["Tazara 6m × 6m ko 7m × 7m", "Rami 60 × 60 × 60 cm", "Dasawa a farkon damina"],
+    title: "Spacing and Holes",
+    items: [
+      "Spacing 6 m × 6 m or 7 m × 7 m",
+      "Planting holes 60 × 60 × 60 cm",
+      "Transplant at onset of rains",
+    ],
   },
   {
     icon: Leaf,
-    title: "Taki da Kulawa",
+    title: "Fertilizer and Care",
     items: [
-      "Taki na gargajiya 5–10 kg/bishiya/shekara",
-      "NPK 15:15:15 a matakai",
-      "Mulching domin rike danshi",
+      "Organic manure 5–10 kg/tree/year",
+      "NPK 15:15:15 — 100 g, 200 g, 300 g (years 1–3)",
+      "Mulch 8–10 cm thick to conserve moisture",
     ],
   },
 ];
@@ -48,31 +52,31 @@ const quickFacts = [
 function ResourcesPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
-      <p className="eyebrow">Kayan Koyo</p>
-      <h1 className="mt-3 text-4xl sm:text-5xl">Littafin Horo da Jagorori</h1>
+      <p className="eyebrow">Resources</p>
+      <h1 className="mt-3 text-4xl sm:text-5xl">Training Manual and Guides</h1>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
         <div className="surface-card rounded-xl p-8">
           <span className="flex size-11 items-center justify-center rounded-lg bg-secondary text-primary">
             <FileText className="size-5" />
           </span>
-          <h2 className="mt-5 text-2xl">Littafin Horo Kan Noman Clove (Hausa)</h2>
+          <h2 className="mt-5 text-2xl">Training Manual on Clove Production</h2>
           <p className="mt-3 text-muted-foreground">
-            Cikakken littafi na darussa 10 tare da manufofin koyo, ka&apos;ida da ayyukan aiki —
-            shirye don amfanin masu horarwa da manoma.
+            The complete 10-module manual with learning objectives, theory and practical sessions —
+            ready for trainers, extension agents and farmers.
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
             PDF · {(manual.size / 1024 / 1024).toFixed(1)} MB
           </p>
           <Button asChild variant="hero" size="lg" className="mt-7">
             <a href={manual.url} target="_blank" rel="noopener noreferrer">
-              <Download className="size-4" /> Sauke Littafin (PDF)
+              <Download className="size-4" /> Download the Manual (PDF)
             </a>
           </Button>
         </div>
         <img
           src={budsImage}
-          alt="Furannin clove sabo da busasshen clove"
+          alt="Fresh and dried clove buds"
           width={1200}
           height={912}
           loading="lazy"
@@ -80,7 +84,7 @@ function ResourcesPage() {
         />
       </div>
 
-      <h2 className="mt-16 text-2xl">Jagorori a Takaice</h2>
+      <h2 className="mt-16 text-2xl">Quick Reference</h2>
       <div className="mt-6 grid gap-5 md:grid-cols-3">
         {quickFacts.map((f) => (
           <div key={f.title} className="rounded-xl border border-border bg-cream p-6">
