@@ -10,16 +10,17 @@ import manual from "@/assets/clove-manual.pdf.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Clove Nigeria — Horo kan Noman Citta Mai Kamshi" },
+      { title: "Clove Nigeria — Professional Clove Production Training" },
       {
         name: "description",
         content:
-          "Cikakken horo kan noman clove a Najeriya: darussa 10 daga nursery zuwa girbi da kasuwanci, tare da littafin horo cikin Hausa.",
+          "Step-by-step clove production training in Nigeria: 10 modules covering nursery, planting, field management, harvesting and marketing, plus a free manual.",
       },
-      { property: "og:title", content: "Clove Nigeria — Horo kan Noman Citta Mai Kamshi" },
+      { property: "og:title", content: "Clove Nigeria — Professional Clove Production Training" },
       {
         property: "og:description",
-        content: "Darussa 10 na noman clove: nursery, dasawa, kula da gona, girbi da kasuwanci.",
+        content:
+          "10 training modules on clove production: nursery, transplanting, field management, harvesting and marketing.",
       },
     ],
   }),
@@ -29,31 +30,31 @@ export const Route = createFileRoute("/")({
 const benefits = [
   {
     icon: Sprout,
-    title: "Ilimin Fili da Ka'ida",
-    body: "Kowane darasi ya hada bayanin ka'ida da ayyukan da ake yi a gona domin samun kwarewa ta gaske.",
+    title: "Theory Plus Field Practice",
+    body: "Every module pairs sound theory with hands-on field activities so participants gain real, usable skills.",
   },
   {
     icon: GraduationCap,
-    title: "Darussa 10 Cikakke",
-    body: "Daga gabatarwa kan clove zuwa lafiya da tsaro — an tsara su mataki-mataki cikin harshen Hausa.",
+    title: "10 Complete Modules",
+    body: "From an introduction to cloves through health and safety — structured step by step for farmers and trainers.",
   },
   {
     icon: LineChart,
-    title: "Kasuwa da Riba",
-    body: "Koyi kara daraja: nika foda, cire man clove, marufi, da rubuta bayanan gona domin samun rance.",
+    title: "Markets and Profitability",
+    body: "Learn value addition through grinding, oil extraction and packaging, plus record keeping that unlocks credit.",
   },
   {
     icon: ShieldCheck,
-    title: "Noma Mai Tsaro",
-    body: "Amfani da kayan kariya (PPE), sarrafa magungunan gona da dabarun kare muhalli kamar agroforestry.",
+    title: "Safe, Climate-Smart Farming",
+    body: "Use of PPE, safe agrochemical handling, and sustainable practices such as mulching and agroforestry.",
   },
 ];
 
 const steps = [
-  { n: "1", title: "Yi Rijista", body: "Cika fom din horo da bayanan gonarka." },
-  { n: "2", title: "Halarci Darussa", body: "Laccoci masu mu'amala da tattaunawar rukuni." },
-  { n: "3", title: "Aiki a Fili", body: "Nuna aiki a gona da ziyartar gonaki na gaske." },
-  { n: "4", title: "Samu Shaida", body: "Kammala darussa 10 sannan a ba ka takardar shaida." },
+  { n: "1", title: "Register", body: "Complete the training form with your farm details." },
+  { n: "2", title: "Attend Modules", body: "Interactive lectures and group discussions." },
+  { n: "3", title: "Field Practicals", body: "Live demonstrations and visits to working farms." },
+  { n: "4", title: "Get Certified", body: "Finish all 10 modules and receive a certificate." },
 ];
 
 function Home() {
@@ -63,7 +64,7 @@ function Home() {
       <section className="relative isolate">
         <img
           src={heroImage}
-          alt="Gonar clove a yankin tropics da manomi yana tafiya tsakanin bishiyoyi"
+          alt="Tropical clove plantation with a farmer walking between the trees"
           width={1600}
           height={1008}
           className="absolute inset-0 size-full object-cover"
@@ -72,23 +73,24 @@ function Home() {
         <div className="relative mx-auto max-w-6xl px-4 py-28 sm:py-36">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
-              Littafin Horo · Hausa
+              Training Manual · 2026
             </p>
             <h1 className="mt-4 font-display text-4xl leading-tight text-primary-foreground sm:text-5xl md:text-6xl">
-              Horo kan Noman Citta Mai Kamshi (Clove)
+              Training on Clove (Syzygium aromaticum) Production
             </h1>
             <p className="mt-5 max-w-xl text-base text-primary-foreground/85 sm:text-lg">
-              An tsara wannan shirin domin horas da manoma, jami&apos;an fadada aikin gona, daliban
-              aikin gona da masu kasuwancin noma — daga zaben wuri zuwa girbi da kasuwa.
+              A professional, step-by-step programme for farmers, extension agents, agricultural
+              students, agripreneurs and development practitioners — from site selection to harvest
+              and market.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="hero" size="lg">
                 <Link to="/register">
-                  Yi Rijistar Horo <ArrowRight className="size-4" />
+                  Register for Training <ArrowRight className="size-4" />
                 </Link>
               </Button>
               <Button asChild variant="onDark" size="lg">
-                <Link to="/modules">Duba Darussa 10</Link>
+                <Link to="/modules">View the 10 Modules</Link>
               </Button>
             </div>
           </div>
@@ -99,10 +101,10 @@ function Home() {
       <section className="border-b border-border bg-cream">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-10 md:grid-cols-4">
           {[
-            { k: "Darussa 10", v: "Tsarin horo cikakke" },
-            { k: "Watanni 18–24", v: "Tsiro ya shirya dasawa" },
-            { k: "Shekaru 5–7", v: "Fara bada fure" },
-            { k: "10–12%", v: "Danshi bayan busarwa" },
+            { k: "10 Modules", v: "Complete training curriculum" },
+            { k: "18–24 months", v: "Seedlings ready to transplant" },
+            { k: "5–7 years", v: "First flowering" },
+            { k: "10–12%", v: "Target moisture after drying" },
           ].map((s) => (
             <div key={s.k}>
               <p className="font-display text-2xl text-primary sm:text-3xl">{s.k}</p>
@@ -114,9 +116,9 @@ function Home() {
 
       {/* Benefits */}
       <section className="mx-auto max-w-6xl px-4 py-20">
-        <p className="eyebrow">Me za ka koya?</p>
+        <p className="eyebrow">What you will learn</p>
         <h2 className="mt-3 max-w-2xl text-3xl sm:text-4xl">
-          Ilimi mai amfani wanda ke kara amfanin gona da riba
+          Practical knowledge that raises yield, quality and profit
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {benefits.map((b) => (
@@ -137,7 +139,7 @@ function Home() {
           <div className="grid grid-cols-2 gap-4">
             <img
               src={budsImage}
-              alt="Furannin clove sabo tare da busasshen clove a kwando"
+              alt="Fresh clove buds beside dried cloves in a basket"
               width={1200}
               height={912}
               loading="lazy"
@@ -145,7 +147,7 @@ function Home() {
             />
             <img
               src={trainingImage}
-              alt="Jami'in fadada aikin gona yana horas da manoma a nursery"
+              alt="Extension agent training farmers in a clove nursery"
               width={1200}
               height={912}
               loading="lazy"
@@ -153,25 +155,25 @@ function Home() {
             />
           </div>
           <div>
-            <p className="eyebrow">Game da Shirin</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl">Daga nursery zuwa kasuwa</h2>
+            <p className="eyebrow">About the programme</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl">From nursery to market</h2>
             <p className="mt-5 text-muted-foreground">
-              Clove (<em>Syzygium aromaticum</em>) itace ce mai kore wadda ba ta faduwa ganye. Ana
-              amfani da furenta wanda bai bude ba a matsayin kayan yaji, a magungunan gargajiya,
-              masana&apos;antar magani, kayan kwalliya da sarrafa abinci.
+              Clove (<em>Syzygium aromaticum</em>) is a perennial evergreen tree of the Myrtaceae
+              family. Its dried unopened flower buds are used as a spice and in traditional
+              medicine, pharmaceuticals, cosmetics and food processing.
             </p>
             <p className="mt-4 text-muted-foreground">
-              A wuraren da yanayi da kasa suka dace, noman clove na iya zama hanyar samun kudin
-              shiga na dogon lokaci ga manoma. Manyan kasashen da ke samar da shi sun hada da
-              Indonesia, Madagascar, Tanzania, Sri Lanka da India.
+              Where agro-ecological conditions are suitable, clove production offers long-term
+              income opportunities. Major producers include Indonesia, Madagascar, Tanzania, Sri
+              Lanka and India.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild>
-                <Link to="/about">Kara karantawa</Link>
+                <Link to="/about">Read more</Link>
               </Button>
               <Button asChild variant="outline">
                 <a href={manual.url} target="_blank" rel="noopener noreferrer">
-                  <Download className="size-4" /> Sauke Littafin
+                  <Download className="size-4" /> Download the Manual
                 </a>
               </Button>
             </div>
@@ -181,8 +183,8 @@ function Home() {
 
       {/* Steps */}
       <section className="mx-auto max-w-6xl px-4 py-20">
-        <p className="eyebrow">Yadda horon ke gudana</p>
-        <h2 className="mt-3 text-3xl sm:text-4xl">Matakai 4 na shiga shirin</h2>
+        <p className="eyebrow">How the training runs</p>
+        <h2 className="mt-3 text-3xl sm:text-4xl">Four steps to join the programme</h2>
         <div className="mt-12 grid gap-6 md:grid-cols-4">
           {steps.map((s) => (
             <div key={s.n} className="rounded-xl border border-border bg-card p-6">
@@ -200,12 +202,12 @@ function Home() {
       <section className="mx-auto max-w-6xl px-4 pb-20">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="eyebrow">Darussa</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl">Tsarin darussa goma</h2>
+            <p className="eyebrow">Curriculum</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl">Ten training modules</h2>
           </div>
           <Button asChild variant="outline">
             <Link to="/modules">
-              Duba duka <ArrowRight className="size-4" />
+              View all <ArrowRight className="size-4" />
             </Link>
           </Button>
         </div>
@@ -231,18 +233,18 @@ function Home() {
       <section className="mx-auto max-w-6xl px-4">
         <div className="rounded-2xl bg-primary px-8 py-14 text-center">
           <h2 className="text-3xl text-primary-foreground sm:text-4xl">
-            Shirya don fara noman clove?
+            Ready to start growing cloves?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/85">
-            Ka shiga rukunin manoma da ke amfani da ingantattun hanyoyin noma domin kara yawan
-            amfanin gona, inganci da riba.
+            Join a community of farmers applying proven agronomic practices to improve productivity,
+            quality and profitability.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild variant="hero" size="lg">
-              <Link to="/register">Yi Rijista Yanzu</Link>
+              <Link to="/register">Register Now</Link>
             </Button>
             <Button asChild variant="onDark" size="lg">
-              <Link to="/contact">Tuntube Mu</Link>
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
         </div>

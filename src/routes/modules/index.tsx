@@ -5,16 +5,16 @@ import { modules } from "@/data/modules";
 export const Route = createFileRoute("/modules/")({
   head: () => ({
     meta: [
-      { title: "Darussa 10 na Noman Clove — Clove Nigeria" },
+      { title: "10 Clove Production Training Modules — Clove Nigeria" },
       {
         name: "description",
         content:
-          "Duba dukkan darussa 10 na littafin horo kan noman clove: gabatarwa, nursery, dasawa, kula da gona, kwari, girbi, kasuwanci da tsaro.",
+          "Browse all 10 modules of the clove production training manual: introduction, botany, site selection, nursery, transplanting, field management, pests, harvesting, marketing and safety.",
       },
-      { property: "og:title", content: "Darussa 10 na Noman Clove" },
+      { property: "og:title", content: "10 Clove Production Training Modules" },
       {
         property: "og:description",
-        content: "Tsarin horo mataki-mataki kan noman citta mai kamshi (clove).",
+        content: "A step-by-step curriculum for clove (Syzygium aromaticum) production.",
       },
     ],
   }),
@@ -24,11 +24,11 @@ export const Route = createFileRoute("/modules/")({
 function ModulesPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
-      <p className="eyebrow">Tsarin Horo</p>
-      <h1 className="mt-3 text-4xl sm:text-5xl">Darussa Goma</h1>
+      <p className="eyebrow">Curriculum</p>
+      <h1 className="mt-3 text-4xl sm:text-5xl">Ten Modules</h1>
       <p className="mt-4 max-w-2xl text-muted-foreground">
-        Kowane darasi ya kunshi manufofin koyo, ka&apos;ida, da ayyukan aiki da ake yi a fili domin
-        mahalarta su samu kwarewar aiki ta gaske.
+        Each module includes learning objectives, theory, and field-based practical sessions so
+        participants build genuine hands-on competence.
       </p>
 
       <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -47,7 +47,7 @@ function ModulesPage() {
             </div>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.summary}</p>
             <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-              Bude darasi <ArrowRight className="size-4" />
+              Open module <ArrowRight className="size-4" />
             </span>
           </Link>
         ))}

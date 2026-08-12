@@ -13,64 +13,65 @@ export function SiteFooter() {
             <span className="font-display text-base font-semibold">Clove Nigeria</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            Cibiyar horas da manoma kan noman citta mai kamshi (clove) — daga nursery zuwa kasuwa.
+            Professional training in clove (Syzygium aromaticum) production — from nursery to
+            market.
           </p>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold">Shafuka</h4>
+          <h4 className="text-sm font-semibold">Pages</h4>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li>
               <Link to="/modules" className="hover:text-primary">
-                Darussa 10
+                10 Modules
               </Link>
             </li>
             <li>
               <Link to="/about" className="hover:text-primary">
-                Game da Mu
+                About
               </Link>
             </li>
             <li>
               <Link to="/resources" className="hover:text-primary">
-                Kayan Koyo
+                Resources
               </Link>
             </li>
             <li>
               <Link to="/register" className="hover:text-primary">
-                Rijistar Horo
+                Register for Training
               </Link>
             </li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold">Ga Wa Aka Tsara Shi</h4>
+          <h4 className="text-sm font-semibold">Who It Is For</h4>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li>Manoma</li>
-            <li>Jami&apos;an fadada aikin gona</li>
-            <li>Daliban aikin gona</li>
-            <li>Agripreneurs da kungiyoyi</li>
+            <li>Farmers</li>
+            <li>Extension agents</li>
+            <li>Agricultural students</li>
+            <li>Agripreneurs &amp; development practitioners</li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold">Tuntube Mu</h4>
+          <h4 className="text-sm font-semibold">Contact</h4>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <Phone className="mt-0.5 size-4 text-primary" /> +234 800 000 0000
             </li>
             <li className="flex items-start gap-2">
-              <Mail className="mt-0.5 size-4 text-primary" /> horo@clovenigeria.org
+              <Mail className="mt-0.5 size-4 text-primary" /> training@clovenigeria.org
             </li>
             <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 size-4 text-primary" /> Abuja, Najeriya
+              <MapPin className="mt-0.5 size-4 text-primary" /> Abuja, Nigeria
             </li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Clove Nigeria Training Institute. Duk hakkoki na kariya.
+        © {new Date().getFullYear()} Clove Nigeria Training Institute. All rights reserved.
       </div>
     </footer>
   );
