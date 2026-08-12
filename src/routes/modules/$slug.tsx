@@ -5,13 +5,15 @@ import { modules } from "@/data/modules";
 export const Route = createFileRoute("/modules/$slug")({
   loader: ({ params }) => {
     const index = modules.findIndex((m) => m.slug === params.slug);
-    if (index === -1) throw notFound();
+    const found = modules[index];
+    if (index === -1 || !found) throw notFound();
     return {
-      module: modules[index],
-      prev: index > 0 ? modules[index - 1] : null,
-      next: index < modules.length - 1 ? modules[index + 1] : null,
+      module: found,
+      prev: modules[index - 1] ?? null,
+      next: modules[index + 1] ?? null,
     };
   },
+
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
