@@ -81,17 +81,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Clove Nigeria — Horo kan Noman Citta Mai Kamshi" },
+      { title: "Clove Nigeria — Clove Production Training Institute" },
       {
         name: "description",
         content:
-          "Cibiyar horas da manoma kan noman clove a Najeriya — darussa 10 cikin harshen Hausa.",
+          "Professional clove production training in Nigeria — a 10-module curriculum for farmers, extension agents and agripreneurs.",
       },
       { name: "author", content: "Clove Nigeria Training Institute" },
-      { property: "og:title", content: "Clove Nigeria — Horo kan Noman Clove" },
+      { property: "og:title", content: "Clove Nigeria — Clove Production Training" },
       {
         property: "og:description",
-        content: "Darussa 10 na noman citta mai kamshi: nursery, dasawa, girbi da kasuwanci.",
+        content:
+          "10 modules on clove production: nursery, transplanting, harvesting and marketing.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -119,7 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="ha">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>

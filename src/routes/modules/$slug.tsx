@@ -43,7 +43,7 @@ function ModuleDetail() {
         to="/modules"
         className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary"
       >
-        <ArrowLeft className="size-4" /> Duk darussa
+        <ArrowLeft className="size-4" /> All modules
       </Link>
 
       <p className="eyebrow mt-8">Module {module.number}</p>
@@ -52,7 +52,7 @@ function ModuleDetail() {
 
       <section className="surface-card mt-10 rounded-xl p-6">
         <h2 className="flex items-center gap-2 text-lg">
-          <Target className="size-5 text-primary" /> Manufofin Koyo
+          <Target className="size-5 text-primary" /> Learning Objectives
         </h2>
         <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
           {module.objectives.map((o) => (
@@ -66,7 +66,7 @@ function ModuleDetail() {
 
       <section className="mt-6 rounded-xl border border-border bg-cream p-6">
         <h2 className="flex items-center gap-2 text-lg">
-          <BookOpen className="size-5 text-primary" /> Ka&apos;ida
+          <BookOpen className="size-5 text-primary" /> Theory
         </h2>
         <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
           {module.theory.map((t) => (
@@ -77,7 +77,7 @@ function ModuleDetail() {
 
       <section className="surface-card mt-6 rounded-xl p-6">
         <h2 className="flex items-center gap-2 text-lg">
-          <Hammer className="size-5 text-primary" /> Ayyukan Aiki
+          <Hammer className="size-5 text-primary" /> Practical Session
         </h2>
         <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
           {module.practicals.map((p) => (
