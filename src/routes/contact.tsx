@@ -26,9 +26,14 @@ export const Route = createFileRoute("/contact")({
 });
 
 const details = [
-  { icon: Phone, label: "Phone", value: "+234 800 000 0000" },
-  { icon: Mail, label: "Email", value: "training@clovenigeria.org" },
-  { icon: MapPin, label: "Office", value: "Abuja, Nigeria" },
+  { icon: Phone, label: "Phone", value: "08079165802" },
+  { icon: Mail, label: "Email", value: "nacloppamn@gmail.com" },
+  {
+    icon: MapPin,
+    label: "Office",
+    value:
+      "Ministry of Trade and Investment, Block D, Facan Office, Old Secretariat, Garki Area 1, Abuja",
+  },
   { icon: Clock, label: "Working Hours", value: "Monday – Friday, 9:00 – 17:00" },
 ];
 
