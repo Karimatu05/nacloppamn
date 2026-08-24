@@ -58,13 +58,15 @@ export function SiteFooter() {
           <h4 className="text-sm font-semibold">Contact</h4>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
-              <Phone className="mt-0.5 size-4 text-primary" /> +234 800 000 0000
+              <Phone className="mt-0.5 size-4 shrink-0 text-primary" /> 08079165802
             </li>
             <li className="flex items-start gap-2">
-              <Mail className="mt-0.5 size-4 text-primary" /> training@clovenigeria.org
+              <Mail className="mt-0.5 size-4 shrink-0 text-primary" /> nacloppamn@gmail.com
             </li>
             <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 size-4 text-primary" /> Abuja, Nigeria
+              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
+              Ministry of Trade and Investment, Block D, Facan Office, Old Secretariat, Garki Area
+              1, Abuja
             </li>
           </ul>
         </div>
