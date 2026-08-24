@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Render.com runs a plain Node.js server, not Cloudflare Workers, so pin the
+  // nitro preset here (Lovable's own builds still default to Cloudflare).
+  nitro: {
+    preset: "node-server",
+  },
 });
