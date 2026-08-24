@@ -52,6 +52,48 @@ const registrationSchema = z.object({
   notes: z.string().trim().max(1000),
 });
 
+// Google Form: https://docs.google.com/forms/d/e/1FAIpQLSeb1jMJKAWzs9Yv7qjQZvLOGC8D_hi6oXOxEarHgY18g8juNg
+const GOOGLE_FORM_ACTION =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeb1jMJKAWzs9Yv7qjQZvLOGC8D_hi6oXOxEarHgY18g8juNg/formResponse";
+
+const GOOGLE_FORM_ENTRIES = {
+  name: "entry.2005620554",
+  email: "entry.1045781291",
+  address: "entry.1065046570",
+  phone: "entry.1166974658",
+  comments: "entry.839337160",
+};
+
+// Submits a copy of the registration to the Google Form (and its linked Sheet).
+// Uses no-cors because Google Forms doesn't return CORS headers; we can't read
+// the response, but the submission still goes through.
+async function submitToGoogleForm(data: z.infer<typeof registrationSchema>) {
+  const body = new URLSearchParams();
+  body.append(GOOGLE_FORM_ENTRIES.name, data.full_name);
+  body.append(GOOGLE_FORM_ENTRIES.email, data.email || "");
+  body.append(
+    GOOGLE_FORM_ENTRIES.address,
+    `State: ${data.state}${data.farm_size ? ` | Farm size: ${data.farm_size} ha` : ""}`
+  );
+  body.append(GOOGLE_FORM_ENTRIES.phone, data.phone);
+  body.append(
+    GOOGLE_FORM_ENTRIES.comments,
+    `Role: ${data.role || "-"}${data.notes ? ` | Notes: ${data.notes}` : ""}`
+  );
+
+  try {
+    await fetch(GOOGLE_FORM_ACTION, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: body.toString(),
+    });
+  } catch {
+    // Non-fatal: the Supabase save above already succeeded, so we don't block
+    // the user on this. Silently ignored.
+  }
+}
+
 function RegisterPage() {
   const [done, setDone] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -93,6 +135,9 @@ function RegisterPage() {
       toast.error("We could not save your registration. Please try again.");
       return;
     }
+
+    // Fire-and-forget copy to the Google Form/Sheet; doesn't block success.
+    void submitToGoogleForm(parsed.data);
 
     form.reset();
     setRole("");
