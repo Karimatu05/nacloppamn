@@ -5,13 +5,13 @@ import trainingImage from "@/assets/training-nursery.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About the Training Programme — Clove Nigeria" },
+      { title: "About the Training Programme — NACLOPPAMN" },
       {
         name: "description",
         content:
           "The purpose of the clove production training manual, who it is designed for, and the training approach we use.",
       },
-      { property: "og:title", content: "About the Training Programme — Clove Nigeria" },
+      { property: "og:title", content: "About the Training Programme — NACLOPPAMN" },
       {
         property: "og:description",
         content: "Purpose, target audience and training approach of the clove production programme.",
