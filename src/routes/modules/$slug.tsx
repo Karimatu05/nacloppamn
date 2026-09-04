@@ -17,11 +17,11 @@ export const Route = createFileRoute("/modules/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Module not found — Clove Nigeria" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Module not found — NACLOPPAMN" }, { name: "robots", content: "noindex" }],
       };
     }
 
-    const title = `Module ${loaderData.module.number}: ${loaderData.module.title} — Clove Nigeria`;
+    const title = `Module ${loaderData.module.number}: ${loaderData.module.title} — NACLOPPAMN`;
     return {
       meta: [
         { title },
