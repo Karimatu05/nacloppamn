@@ -64,7 +64,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-          <a
+          
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
@@ -81,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Clove Nigeria — Clove Production Training Institute" },
+      { title: "NACLOPPAMN — Clove Production Training" },
       {
         name: "description",
         content:
           "Professional clove production training in Nigeria — a 10-module curriculum for farmers, extension agents and agripreneurs.",
       },
-      { name: "author", content: "Clove Nigeria Training Institute" },
-      { property: "og:title", content: "Clove Nigeria — Clove Production Training" },
+      { name: "author", content: "NACLOPPAMN" },
+      { property: "og:title", content: "NACLOPPAMN — Clove Production Training" },
       {
         property: "og:description",
         content:
@@ -149,4 +149,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-
