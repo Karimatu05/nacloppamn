@@ -10,13 +10,13 @@ import manual from "@/assets/clove-manual.pdf.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Clove Nigeria — Professional Clove Production Training" },
+      { title: "NACLOPPAMN — Professional Clove Production Training" },
       {
         name: "description",
         content:
           "Step-by-step clove production training in Nigeria: 10 modules covering nursery, planting, field management, harvesting and marketing, plus a free manual.",
       },
-      { property: "og:title", content: "Clove Nigeria — Professional Clove Production Training" },
+      { property: "og:title", content: "NACLOPPAMN — Professional Clove Production Training" },
       {
         property: "og:description",
         content:
@@ -72,10 +72,7 @@ function Home() {
         <div className="hero-overlay absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-4 py-28 sm:py-36">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
-              Training Manual · 2026
-            </p>
-            <h1 className="mt-4 font-display text-4xl leading-tight text-primary-foreground sm:text-5xl md:text-6xl">
+            <h1 className="font-display text-4xl leading-tight text-primary-foreground sm:text-5xl md:text-6xl">
               Training on Clove (Syzygium aromaticum) Production
             </h1>
             <p className="mt-5 max-w-xl text-base text-primary-foreground/85 sm:text-lg">
