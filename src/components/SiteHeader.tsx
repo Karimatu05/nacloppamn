@@ -22,9 +22,9 @@ export function SiteHeader() {
             <Leaf className="size-5" />
           </span>
           <span className="leading-tight">
-            <span className="block font-display text-base font-semibold">Clove Nigeria</span>
-            <span className="block text-[11px] uppercase tracking-widest text-muted-foreground">
-              Training Institute
+            <span className="block font-display text-base font-semibold">NACLOPPAMN</span>
+            <span className="block max-w-[220px] text-[10px] leading-snug uppercase tracking-wide text-muted-foreground">
+              National Association of Cloves Producers, Processors and Marketers of Nigeria
             </span>
           </span>
         </Link>
