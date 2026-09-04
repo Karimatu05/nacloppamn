@@ -9,13 +9,13 @@ import { Textarea } from "@/components/ui/textarea";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us — Clove Nigeria" },
+      { title: "Contact Us — NACLOPPAMN" },
       {
         name: "description",
         content:
-          "Contact the Clove Nigeria training team with questions about clove production, training schedules or partnerships.",
+          "Contact the NACLOPPAMN training team with questions about clove production, training schedules or partnerships.",
       },
-      { property: "og:title", content: "Contact Us — Clove Nigeria" },
+      { property: "og:title", content: "Contact Us — NACLOPPAMN" },
       {
         property: "og:description",
         content: "Questions about clove production training? Send us a message.",
