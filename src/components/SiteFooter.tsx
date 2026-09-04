@@ -10,10 +10,11 @@ export function SiteFooter() {
             <span className="flex size-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <Leaf className="size-5" />
             </span>
-            <span className="font-display text-base font-semibold">Clove Nigeria</span>
+            <span className="font-display text-base font-semibold">NACLOPPAMN</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            Professional training in clove (Syzygium aromaticum) production — from nursery to
+            National Association of Cloves Producers, Processors and Marketers of Nigeria —
+            professional training in clove (Syzygium aromaticum) production, from nursery to
             market.
           </p>
         </div>
@@ -73,7 +74,8 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Clove Nigeria Training Institute. All rights reserved.
+        © {new Date().getFullYear()} National Association of Cloves Producers, Processors and
+        Marketers of Nigeria (NACLOPPAMN). All rights reserved.
       </div>
     </footer>
   );
