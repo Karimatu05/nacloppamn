@@ -7,7 +7,7 @@ import budsImage from "@/assets/clove-buds.jpg";
 export const Route = createFileRoute("/resources")({
   head: () => ({
     meta: [
-      { title: "Resources and Training Manual — Clove Nigeria" },
+      { title: "Resources and Training Manual — NACLOPPAMN" },
       {
         name: "description",
         content:
