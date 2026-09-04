@@ -1,25 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { CheckCircle2, Loader2 } from "lucide-react";
-import { toast } from "sonner";
-import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/register")({
   head: () => ({
     meta: [
-      { title: "Register for Clove Production Training — Clove Nigeria" },
+      { title: "Register for Clove Production Training — NACLOPPAMN" },
       {
         name: "description",
         content:
@@ -42,109 +27,12 @@ const perks = [
   "Certificate on completion",
 ];
 
-const registrationSchema = z.object({
-  full_name: z.string().trim().min(2, "Please enter your full name").max(100),
-  phone: z.string().trim().min(7, "Please enter a valid phone number").max(30),
-  email: z.union([z.string().trim().email("Invalid email address").max(255), z.literal("")]),
-  state: z.string().trim().min(2, "Please enter your state").max(60),
-  role: z.string().trim().max(40),
-  farm_size: z.string().trim().max(40),
-  notes: z.string().trim().max(1000),
-});
-
-// Google Form: https://docs.google.com/forms/d/e/1FAIpQLSeb1jMJKAWzs9Yv7qjQZvLOGC8D_hi6oXOxEarHgY18g8juNg
-const GOOGLE_FORM_ACTION =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeb1jMJKAWzs9Yv7qjQZvLOGC8D_hi6oXOxEarHgY18g8juNg/formResponse";
-
-const GOOGLE_FORM_ENTRIES = {
-  name: "entry.2005620554",
-  email: "entry.1045781291",
-  address: "entry.1065046570",
-  phone: "entry.1166974658",
-  comments: "entry.839337160",
-};
-
-// Submits a copy of the registration to the Google Form (and its linked Sheet).
-// Uses no-cors because Google Forms doesn't return CORS headers; we can't read
-// the response, but the submission still goes through.
-async function submitToGoogleForm(data: z.infer<typeof registrationSchema>) {
-  const body = new URLSearchParams();
-  body.append(GOOGLE_FORM_ENTRIES.name, data.full_name);
-  body.append(GOOGLE_FORM_ENTRIES.email, data.email || "");
-  body.append(
-    GOOGLE_FORM_ENTRIES.address,
-    `State: ${data.state}${data.farm_size ? ` | Farm size: ${data.farm_size} ha` : ""}`
-  );
-  body.append(GOOGLE_FORM_ENTRIES.phone, data.phone);
-  body.append(
-    GOOGLE_FORM_ENTRIES.comments,
-    `Role: ${data.role || "-"}${data.notes ? ` | Notes: ${data.notes}` : ""}`
-  );
-
-  try {
-    await fetch(GOOGLE_FORM_ACTION, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: body.toString(),
-    });
-  } catch {
-    // Non-fatal: the Supabase save above already succeeded, so we don't block
-    // the user on this. Silently ignored.
-  }
-}
+// Registration is handled by our official Google Form so responses land
+// directly in NACLOPPAMN's Google Sheet.
+const GOOGLE_FORM_EMBED_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeb1jMJKAWzs9Yv7qjQZvLOGC8D_hi6oXOxEarHgY18g8juNg/viewform?embedded=true";
 
 function RegisterPage() {
-  const [done, setDone] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [role, setRole] = useState("");
-
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    const parsed = registrationSchema.safeParse({
-      full_name: String(formData.get("name") ?? ""),
-      phone: String(formData.get("phone") ?? ""),
-      email: String(formData.get("email") ?? ""),
-      state: String(formData.get("state") ?? ""),
-      role,
-      farm_size: String(formData.get("farm") ?? ""),
-      notes: String(formData.get("note") ?? ""),
-    });
-
-    if (!parsed.success) {
-      toast.error(parsed.error.issues[0]?.message ?? "Please check your details");
-      return;
-    }
-
-    setSubmitting(true);
-    const { error } = await supabase.from("registrations").insert({
-      full_name: parsed.data.full_name,
-      phone: parsed.data.phone,
-      email: parsed.data.email || null,
-      state: parsed.data.state,
-      role: parsed.data.role || null,
-      farm_size: parsed.data.farm_size || null,
-      notes: parsed.data.notes || null,
-    });
-    setSubmitting(false);
-
-    if (error) {
-      toast.error("We could not save your registration. Please try again.");
-      return;
-    }
-
-    // Fire-and-forget copy to the Google Form/Sheet; doesn't block success.
-    void submitToGoogleForm(parsed.data);
-
-    form.reset();
-    setRole("");
-    setDone(true);
-    toast.success("Registration received. We will contact you shortly.");
-  }
-
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
       <p className="eyebrow">Registration</p>
@@ -155,79 +43,18 @@ function RegisterPage() {
       </p>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
-        <form className="surface-card rounded-xl p-6 sm:p-8" onSubmit={handleSubmit}>
-          {done ? (
-            <div className="py-10 text-center">
-              <CheckCircle2 className="mx-auto size-10 text-primary" />
-              <h2 className="mt-4 text-2xl">Registration received!</h2>
-              <p className="mt-3 text-sm text-muted-foreground">
-                We have your details. Our trainers will reach out with the training schedule.
-              </p>
-              <Button className="mt-6" variant="outline" onClick={() => setDone(false)}>
-                Submit another form
-              </Button>
-            </div>
-          ) : (
-            <div className="grid gap-5 sm:grid-cols-2">
-              <div className="grid gap-2">
-                <Label htmlFor="name">Full Name</Label>
-                <Input id="name" name="name" required placeholder="Your full name" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="phone">Phone Number</Label>
-                <Input id="phone" name="phone" type="tel" required placeholder="080..." />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email (optional)</Label>
-                <Input id="email" name="email" type="email" placeholder="you@email.com" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="state">State</Label>
-                <Input id="state" name="state" required placeholder="e.g. Kaduna" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="role">Your Role</Label>
-                <Select value={role} onValueChange={setRole}>
-                  <SelectTrigger id="role">
-                    <SelectValue placeholder="Select a role" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="farmer">Farmer</SelectItem>
-                    <SelectItem value="extension">Extension agent</SelectItem>
-                    <SelectItem value="student">Agricultural student</SelectItem>
-                    <SelectItem value="agripreneur">Agripreneur</SelectItem>
-                    <SelectItem value="practitioner">Development practitioner</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="farm">Farm Size (hectares)</Label>
-                <Input id="farm" name="farm" placeholder="e.g. 2" />
-              </div>
-              <div className="grid gap-2 sm:col-span-2">
-                <Label htmlFor="note">Additional Information</Label>
-                <Textarea
-                  id="note"
-                  name="note"
-                  rows={4}
-                  placeholder="Tell us about your farm or questions"
-                />
-              </div>
-              <div className="sm:col-span-2">
-                <Button
-                  type="submit"
-                  variant="hero"
-                  size="lg"
-                  disabled={submitting}
-                  className="w-full sm:w-auto"
-                >
-                  {submitting && <Loader2 className="mr-2 size-4 animate-spin" />}
-                  {submitting ? "Submitting..." : "Submit Registration"}
-                </Button>
-              </div>
-            </div>
-          )}
-        </form>
+        <div className="surface-card overflow-hidden rounded-xl p-2 sm:p-4">
+          <iframe
+            src={GOOGLE_FORM_EMBED_URL}
+            title="NACLOPPAMN Training Registration Form"
+            width="100%"
+            height="1100"
+            className="rounded-lg"
+            style={{ border: "none" }}
+          >
+            Loading…
+          </iframe>
+        </div>
 
         <aside className="rounded-xl border border-border bg-cream p-6 sm:p-8">
           <h2 className="text-xl">What you get</h2>
