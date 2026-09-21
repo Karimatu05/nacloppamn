@@ -39,7 +39,7 @@ export function SiteFooter() {
             </li>
             <li>
               <Link to="/register" className="hover:text-primary">
-                Register for Training
+                Register for Membership
               </Link>
             </li>
           </ul>
