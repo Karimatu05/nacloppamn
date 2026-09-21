@@ -4,16 +4,16 @@ import { CheckCircle2 } from "lucide-react";
 export const Route = createFileRoute("/register")({
   head: () => ({
     meta: [
-      { title: "Register for Clove Production Training — NACLOPPAMN" },
+      { title: "Register for Membership — NACLOPPAMN" },
       {
         name: "description",
         content:
-          "Complete the registration form to join the clove production training: your details, state, role and farm size.",
+          "Register as a NACLOPPAMN member and join the clove production training: your details, state, role and farm size.",
       },
-      { property: "og:title", content: "Register for Clove Production Training" },
+      { property: "og:title", content: "Register for Membership" },
       {
         property: "og:description",
-        content: "Sign up to attend the clove (Syzygium aromaticum) production training programme.",
+        content: "Join NACLOPPAMN and sign up for the clove (Syzygium aromaticum) production training programme.",
       },
     ],
   }),
@@ -36,10 +36,10 @@ function RegisterPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
       <p className="eyebrow">Registration</p>
-      <h1 className="mt-3 text-4xl sm:text-5xl">Register for Training</h1>
+      <h1 className="mt-3 text-4xl sm:text-5xl">Register for Membership</h1>
       <p className="mt-4 max-w-2xl text-muted-foreground">
-        Fill in the form below and our trainers will contact you with the schedule and venue that
-        suits you best.
+        Fill in the form below to register as a NACLOPPAMN member and join the training. Our team
+        will contact you with the schedule and venue that suits you best.
       </p>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
