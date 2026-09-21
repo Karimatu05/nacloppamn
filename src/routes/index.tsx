@@ -51,7 +51,11 @@ const benefits = [
 ];
 
 const steps = [
-  { n: "1", title: "Register", body: "Complete the training form with your farm details." },
+  {
+    n: "1",
+    title: "Register as a Member",
+    body: "Join NACLOPPAMN as a member and enrol in the training programme.",
+  },
   { n: "2", title: "Attend Modules", body: "Interactive lectures and group discussions." },
   { n: "3", title: "Field Practicals", body: "Live demonstrations and visits to working farms." },
   { n: "4", title: "Get Certified", body: "Finish all 10 modules and receive a certificate." },
@@ -83,7 +87,7 @@ function Home() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="hero" size="lg">
                 <Link to="/register">
-                  Register for Training <ArrowRight className="size-4" />
+                  Register for Membership <ArrowRight className="size-4" />
                 </Link>
               </Button>
               <Button asChild variant="onDark" size="lg">
